@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import CanvasEditor from "./Components/CanvasEditor";
 import './App.css';
 
@@ -11,28 +11,16 @@ const App = () => {
     const API_KEY = '-c1sRXm4PDELcsNQMI3WS3H0x6TJ8cCs_jXpbX2QlNQ';
     const response = await fetch(
 
+
       `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=28&page=1&client_id=${API_KEY}`
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setImages(data.results);
+    
   };
 
-  const [isOffline, setIsOffline] = useState(!navigator.onLine);
-
-  useEffect(() => {
-    const handleOnline = () => setIsOffline(false);
-    const handleOffline = () => setIsOffline(true);
-
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
-  }, []);
-
+  
   // useEffect
 
   return (
