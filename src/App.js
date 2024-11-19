@@ -66,15 +66,7 @@ const App = () => {
         </div>
       </div>
 
-      <div>
-        {isOffline && (
-          <div style={{ backgroundColor: 'yellow', padding: '10px', textAlign: 'center' }}>
-            <strong>You are offline. Some features may not be available.</strong>
-          </div>
-        )}
-        <h1>Welcome to the App</h1>
-        <p>This app works offline!</p>
-      </div>
+     
     </>
   );
 };
