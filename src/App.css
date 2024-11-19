@@ -1,38 +1,202 @@
-.App {
-  text-align: center;
+/* General Styles */
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Wrapper for the two panels */
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Left Panel for Image Results */
+.left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3;
+}
+
+.image-results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.image-results img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-results img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Panel for CanvasEditor */
+
+
+  /* Right Panel for CanvasEditor */
+  .right-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    /* Allow vertical stacking if needed */
+    align-items: center;
+    /* Center horizontally */
+    justify-content: flex-start;
+    /* Align content to the top */
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
+    height: 100%;
+    /* Ensure it takes full height */
+  }
+
+
+
+.right-panel canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* General Styles */
+.canvas-editor {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.toolbar {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.toolbar button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.toolbar button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.toolbar button:active {
+  transform: scale(1);
+}
+
+.stage-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.stage-container canvas {
+  border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .toolbar {
+    flex-wrap: wrap;
+    gap: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .toolbar button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .stage-container {
+    max-width: 100%;
+    border: 1px solid #aaa;
+  }
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .toolbar button {
+    width: 100%;
+  }
+
+  .canvas-editor {
+    margin: 10px;
   }
 }
